@@ -1,0 +1,48 @@
+{% extends "base.html" %} 
+{%block title%}Notes{%endblock%}
+
+{%block content %}
+<h3 align="center">Notes</h3>
+
+<div>
+    <div class="form form-floating col-sm-8">
+        <form action="/notes" method="POST">
+            {{ template_form.hidden_tag() }}
+            <div class="row mb-0 ml-2">
+                <p>
+                    {{template_form.title.label(class='form-label')}}
+                    {{template_form.title(class="form-control")}}
+                </p>
+            </div>
+            <div class="row mb-0 ml-2">
+                <p>
+                    {{template_form.body.label(class='form-label')}}
+                    {{template_form.body(class="form-control")}}
+                </p>
+            </div>
+            <button class="btn btn-default"><input type="submit" value=Add></button>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    {% for note in user.notes%}
+    <div class="card m-3 p-3" style="width: 18rem; ">
+        <div class="card-body">
+          <h5 class="card-title">{{note.title}}</h5>
+          <p class="card-text">{{note.body}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <!-- <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li> -->
+        </ul>
+        <!-- <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div> -->
+      </div>
+      {%endfor%}
+</div>
+
+{%endblock%}

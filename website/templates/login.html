@@ -1,0 +1,28 @@
+{% extends "base.html" %} {%block title%}Login{%endblock%}
+
+{%block content%}
+<h3 align="center">Login</h3>
+
+
+<div>
+    <div class="form form-floating col-sm-8">
+        <form action="/login" method="POST">
+            {{ template_form.hidden_tag() }}
+            <div class="row mb-0 ml-2">
+                <p>
+                    {{template_form.username.label(class='form-label')}}
+                    {{template_form.username(class="form-control")}}
+                </p>
+            </div>
+            <div class="row mb-0 ml-2">
+                <p>
+                    {{template_form.password.label(class='form-label')}}
+                    {{template_form.password(class="form-control")}}
+                </p>
+            </div>
+            <button class="btn btn-default"><input type="submit" value=Login></button>
+        </form>
+    </div>
+</div>
+
+{%endblock%}
