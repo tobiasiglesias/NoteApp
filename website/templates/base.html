@@ -33,24 +33,28 @@
               <li class="nav-item">
                 <a class="nav-link" href="/notes">Notes</a>
               </li>
+              {% if not user.is_authenticated %}
               <li class="nav-item">
                 <a class="nav-link" href="/login">Login</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/sign-up">Sign-Up</a>
               </li>
+              {%else%}
               <li class="nav-item">
                 <a class="nav-link" href="/logout">Logout</a>
               </li>
+              {%endif%}
             </ul>
             {%if user%}
             <div class="ml-auto p-2">
-                <p class=""> {{user.username}} </p>
+                <h4 class="text text-white"> {{user.username}} </h4>
             </div>
             {%endif%}
           </div>
         </div>
       </nav>
+
 
       <div> {% block content %} {% endblock %} </div>
       {% with messages = get_flashed_messages(with_categories=true) %} {% if

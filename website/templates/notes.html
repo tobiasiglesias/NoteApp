@@ -26,21 +26,17 @@
 </div>
 
 <div class="row">
-    {% for note in user.notes%}
+    {% for note in notes%}
     <div class="card m-3 p-3" style="width: 18rem; ">
         <div class="card-body">
-          <h5 class="card-title">{{note.title}}</h5>
+          <div class="">
+            <h5 class="card-title d-inline"> <a  href="/{{user.username}}/{{note.title}}">{{note.title}}</a></h5>
+            <form action="/{{user.username}}/delete:{{note.id|int}}" method="POST" class="d-inline close" aria-label="Close">
+                <input aria-hidden="true" type="submit" value=&times; />
+            </form>
+          </div>
           <p class="card-text">{{note.body}}</p>
         </div>
-        <ul class="list-group list-group-flush">
-          <!-- <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li> -->
-        </ul>
-        <!-- <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div> -->
       </div>
       {%endfor%}
 </div>
