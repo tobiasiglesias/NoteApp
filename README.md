@@ -14,6 +14,14 @@ Install the required dependencies:
 pip install -r requirements.txt
 ```
 
+Finally, run the application:
+``` bash
+python main.py
+```
+
+The application will be available at http://localhost:5000.
+
+
 ## Usage
 To use the application, you must first create an account. Click "Sign up" on the homepage and complete the registration form. Once registered, you will be automatically logged in.
 ![Captura de pantalla de la página de inicio](screenshots/2023-03-17%2012_42_12-.png)
